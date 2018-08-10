@@ -171,7 +171,7 @@ Splunk > Preferred (or Default Search App) > Dashboards > Create New Dashboard
 
 Set a title for your new dashboard, and the appropriate description, id, permissions, etc.
 
-On the new dashboard > Edit Source > Copy and Paste the following XML () :
+On the new dashboard > Edit Source > Copy and Paste the following XML ([Also available here](https://github.com/danucalovj/Splunk-Netflow-Analyzer/raw/master/traffic_analysis.xml)) and save :
 
 ``` XML
 <dashboard>
@@ -472,6 +472,35 @@ App Context: Select the app context you want use for this input, or leave as def
 
 Review and finish the wizard.
 
+#### Start Logstash
+
+Now it's time to start the logstash server:
+
+``` bash
+service logstash restart
+```
+
+Or, if the service is already stopped:
+``` bash
+service logstash start
+```
+
+Alternatively, you can manually run the configuration to test it:
+``` bash
+/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/netflow.conf
+```
+
+# Conclusion
+That's it! Now you should have a deployment capable of ingesting, parsing and visualizing your Netflow data. Simply configure your firewall to send Netflow to the Logstash server on port 777 and your data should start showing within a few minutes.
+
+## What's Next?
+Over coming weeks/months, I'll be adding a significant amount of functionality to this dashboard. Right now, it's pretty simple, but the following changes/commits will happen in the near future:
+
+1. Threat Intelligence - Correlating incoming Netflow data to Firehol IPSETS to identify possible signs of compromise, outgoing TOR traffic, etc.
+2. Reports
+3. Alerts
+4. Integration with 3rd party tools/services. i.e.: Alerts on specific events via Zapier, webhooks, Twilio, etc.
+5. Integration with Cloudwatch for log storage.
 
 
 
