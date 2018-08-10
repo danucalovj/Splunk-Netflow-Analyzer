@@ -1,9 +1,21 @@
 # Splunk-Netflow-Analyzer
-Content
+
+#### Description
+
+This project contains all the components and documentation necessary to start collecting and visualizing Netflow data using Splunk. The dashboard allows administrators and security professionals to capture network traffic data, and analyze flows to determine possible bottlenecks and/or security incidents across the corporate network.
+
+The project consists of several key components:
+
+1. Your Netflow log source (i.e.: Firewall/Network Gateway) - Cisco Meraki was used during this project.
+2. Logstash - Version 6.3 was used for this project.
+3. Splunk - Version 6.4.3 was used for this project.
 
 #### Why not use Splunk's built in Netflow collector instead of Logstash?
 Splunk has a built-in Netflow collector that can be easily configured using the built-in scripts available as part of the [Splunk Add-on for Netflow](https://splunkbase.splunk.com/app/1658/). More documentation on how to configure the add-on and the binaries to collect Netflow data is available [here](https://docs.splunk.com/Documentation/AddOns/released/NetFlow/Configureinputs).
-Un
+
+Unfortunately, the add-on doesn't work, or doesn't work well (from my testing) in a Docker container, which for my purposes Docker seemed to do the job well. I didn't spend much time looking into the issue, but I'm guessing the Netflow binaries need some low level hook access to the OS which might not be available in a Docker container. In a production environment, I would recommend a dedicated server for Splunk depending on how much data you're ingesting, and definitely not in a Docker container or you'll see some pretty big performance impact.
+
+Logstash was simple enought to setup in a separate container, and specifically for this project all I needed was a UDP input, then to decode the data (Netflow codec), then forward the decoded data over to Splunk for Analysis.
 
 # Diagram
 
