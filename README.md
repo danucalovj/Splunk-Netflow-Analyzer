@@ -113,11 +113,8 @@ touch netflow.conf
 nano netflow.conf
 ```
 Copy and paste the following into the netflow.conf file:
-``` json
+``` yml
 input {
-  tcp {
-    port => 777
-  }
   udp {
     port => 777
     codec => netflow {
@@ -131,7 +128,7 @@ input {
 output {
   stdout { }
   udp {
-    host => "45.55.240.82"
+    host => "127.0.0.1"
     port => 555
   }
 }
