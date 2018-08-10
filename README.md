@@ -1,7 +1,13 @@
 # Splunk-Netflow-Analyzer
 Content
 
+#### Why not use Splunk's built in Netflow collector instead of Logstash?
+Content
+
 # Diagram
+
+#### 
+
 ![alt text](https://raw.githubusercontent.com/danucalovj/Splunk-Netflow-Analyzer/master/Netflow-Diagram.png "Diagram")
 
 # Screenshots
