@@ -105,11 +105,37 @@ This should take a few moments for each plugin.
 
 #### Logstash Configuration
 
+Now that the plugins are installed, we need to load the configuration that tells Logstash to listen for packets on UDP port 777, decode the Netflow packets, and then send them off to Splunk on UDP port 555.
 
+``` bash
+cd /etc/logstash/conf.d
+touch netflow.conf
+nano netflow.conf
+```
+Copy and paste the following into the netflow.conf file:
+``` json
+input {
+  tcp {
+    port => 777
+  }
+  udp {
+    port => 777
+    codec => netflow {
+      versions => [5, 9]
+    }
+    type => netflow
+    tags => "port_777"
+  }
+}
 
-
-
-
+output {
+  stdout { }
+  udp {
+    host => "45.55.240.82"
+    port => 555
+  }
+}
+```
 
 
 
