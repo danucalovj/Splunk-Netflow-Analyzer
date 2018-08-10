@@ -45,4 +45,27 @@ Logstash was simple enought to setup in a separate container, and specifically f
 ![alt text](https://raw.githubusercontent.com/danucalovj/Splunk-Netflow-Analyzer/master/Dashboard-Sample3.PNG "Dashboard Sample 3")
 
 # Requirements
-Content
+
+##### Software / Network
+1. Ubuntu Server 16.04 Xenial
+2. Logstash >= v6.3
+3. Splunk >= v6.4.3
+4. Outbound Firewall Rule: Corp Network > UDP 777 > Ubuntu Server
+
+##### Note: 
+This is not a requirement, but if Logstash and Splunk are residing in separate servers on separate networks, Logstash must be able to communicate to UDP Port 555 on the Splunk server.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
