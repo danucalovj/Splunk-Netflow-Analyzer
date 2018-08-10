@@ -2,7 +2,8 @@
 Content
 
 #### Why not use Splunk's built in Netflow collector instead of Logstash?
-Content
+Splunk has a built-in Netflow collector that can be easily configured using the built-in scripts available as part of the [Splunk Add-on for Netflow](https://splunkbase.splunk.com/app/1658/). More documentation on how to configure the add-on and the binaries to collect Netflow data is available [here](https://docs.splunk.com/Documentation/AddOns/released/NetFlow/Configureinputs).
+Un
 
 # Diagram
 
