@@ -57,11 +57,11 @@ This is not a requirement, but if Logstash and Splunk are residing in separate s
 
 # Configuration
 
-### Install Logstash
+### Install Logstash:
 
 Official Documentation: [Installing Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
-#### Check Java Version
+#### Check Java Version:
 
 ``` bash
 java -version
@@ -103,7 +103,7 @@ cd /usr/share/logstash/bin
 ```
 This should take a few moments for each plugin.
 
-#### Logstash Configuration
+#### Logstash Configuration:
 
 Now that the plugins are installed, we need to load the configuration that tells Logstash to listen for packets on UDP port 777, decode the Netflow packets, and then send them off to Splunk on UDP port 555.
 
@@ -133,6 +133,36 @@ output {
   }
 }
 ```
+
+##### Note:
+If using a separate server for Splunk, replace "127.0.0.1" with the IP of your Splunk server.
+
+### Configure Splunk:
+
+Now we need to configure a few settings on the Splunk server...
+
+#### Install the Splunk Technical Add-on for Netflow:
+
+[Splunk Add-on for Netflow](https://splunkbase.splunk.com/app/1658/)
+
+This will load a few things on your Splunk server, including a new "netflow" source type that automatically parses netflow data and maps specific related fields.
+
+#### Install the App (Optional)
+
+#### Create the UDP input to receive Netflow data from Logstash:
+
+Splunk > Settings > Data inputs > UDP > New
+
+Port: 555
+Source Type: netflow
+App Context: Select the app context you want use for this input, or leave as default.
+
+Review and finish the wizard.
+
+
+
+
+
 
 
 
