@@ -491,7 +491,9 @@ Alternatively, you can manually run the configuration to test it:
 ```
 
 # Conclusion
-That's it! Now you should have a deployment capable of ingesting, parsing and visualizing your Netflow data. Simply configure your firewall to send Netflow to the Logstash server on port 777 and your data should start showing within a few minutes.
+That's it! 
+
+Now you should have a deployment capable of ingesting, parsing and visualizing your Netflow data. Simply configure your firewall to send Netflow to the Logstash server on port 777 and your data should start showing within a few minutes.
 
 ## What's Next?
 Over coming weeks/months, I'll be adding a significant amount of functionality to this dashboard. Right now, it's pretty simple, but the following changes/commits will happen in the near future:
@@ -502,6 +504,7 @@ Over coming weeks/months, I'll be adding a significant amount of functionality t
 4. Integration with 3rd party tools/services. i.e.: Alerts on specific events via Zapier, webhooks, Twilio, etc.
 5. Integration with Cloudwatch for log storage.
 
+Stay tuned!
 
 
 
