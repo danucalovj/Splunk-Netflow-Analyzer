@@ -67,6 +67,45 @@ Official Documentation: [Installing Logstash](https://www.elastic.co/guide/en/lo
 java -version
 ```
 
+This should produce an output similar to:
+``` bash
+java version "1.8.0_65"
+Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
+Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)
+```
+
+If Java is not installed, install Java:
+``` bash
+apt-get install default-jdk
+```
+
+#### Install Logstash:
+``` bash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+sudo apt-get update && sudo apt-get install logstash
+```
+
+Logstash should be installed now. To verify, navigate to the following folder and verify the binaries are there:
+``` bash
+/usr/share/logstash/bin
+```
+
+#### Install Logstash Plugins:
+
+Run the following commands on the Logstash server:
+``` bash
+cd /usr/share/logstash/bin
+./logstash-plugin install logstash-input-udp
+./logstash-plugin install logstash-codec-netflow
+./logstash-plugin install logstash-output-udp
+```
+This should take a few moments for each plugin.
+
+#### Logstash Configuration
+
+
 
 
 
