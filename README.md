@@ -53,8 +53,19 @@ Logstash was simple enought to setup in a separate container, and specifically f
 4. Outbound Firewall Rule: Corp Network > UDP 777 > Ubuntu Server
 
 ##### Note: 
-This is not a requirement, but if Logstash and Splunk are residing in separate servers on separate networks, Logstash must be able to communicate to UDP Port 555 on the Splunk server.
+This is not a requirement, but if Logstash and Splunk are residing in separate servers on separate networks, Logstash must be able to communicate to UDP Port 555 on the Splunk server. This deployment assumes both reside on the same server.
 
+# Configuration
+
+### Install Logstash
+
+Official Documentation: [Installing Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
+
+#### Check Java Version
+
+``` bash
+java -version
+```
 
 
 
