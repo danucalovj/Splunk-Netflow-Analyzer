@@ -26,8 +26,6 @@ Logstash was simple enought to setup in a separate container, and specifically f
 
 # Diagram
 
-#### 
-
 ![alt text](https://raw.githubusercontent.com/danucalovj/Splunk-Netflow-Analyzer/master/Netflow-Diagram.png "Diagram")
 
 # Screenshots
